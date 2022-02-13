@@ -72,5 +72,27 @@ switch(day)
         break;
 }
 
+Console.WriteLine("\nBitte wählen sie einen der folgenden Kommandos aus: SayHello, SayGoodbye oder Smile.");
+Console.Write("Command: ");
+string command = Console.ReadLine();
+
+switch(command)
+{
+    case "SayHello":
+        Console.WriteLine("Hallo!");
+        break;
+
+    case "SayGoodbye":
+        Console.WriteLine("Auf wiedersehen!");
+        break;
+
+    case "Smile":
+        Console.WriteLine("=)");
+        break;
+
+        default :
+        Console.WriteLine("Ungültiger Befehl!");
+        break;
+}
 
 Console.ReadKey();
