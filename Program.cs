@@ -32,7 +32,45 @@ if ((alter >= 18) && (mobil) && (qualifiziert || testBestanden) && !schüchtern)
 }
 else
 {
-    Console.WriteLine("Du bekommst den Job leider nicht.");
+    Console.WriteLine("Du bekommst den Job leider nicht.\n");
 }
+
+Console.WriteLine("Bitte geben Sie einen Wert zwischen 1 und 8 ein: ");
+int day = Convert.ToInt32(Console.ReadLine());
+switch(day)
+{
+    case 1:
+        Console.WriteLine("Es ist Montag.");
+        break;
+
+    case 2:
+        Console.WriteLine("Es ist Dienstag!");
+        break ;
+
+    case 3:
+        Console.WriteLine("Es ist Mittwoch meine Kerle!");
+        break;
+
+    case 4:
+        Console.WriteLine("Es ist Donnerstag!");
+        break;
+
+    case 5:
+        Console.WriteLine("Es ist Freitag!");
+        break;
+
+    case 6:
+        Console.WriteLine("Es ist Samstag");
+        break;
+
+    case 8:
+        Console.WriteLine("Es ist schon wieder Mittwoch -.-");
+        break;
+
+        default:
+        Console.WriteLine("Dieser Wert konnte nicht zugeordnet werden.");
+        break;
+}
+
 
 Console.ReadKey();
