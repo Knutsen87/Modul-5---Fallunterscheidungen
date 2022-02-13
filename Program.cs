@@ -1,98 +1,74 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-
-int age = 14;
-bool withParents = false;
-
-/* if (age >= 18)
-       {
-           Console.WriteLine("Du darfst den Film sehen!");
-       }
-       else if (withParents == true)
-       {
-           Console.WriteLine("Du darfst den Film dank deiner Eltern sehen!");
-       }
-       else
-       {
-           Console.WriteLine("Du darfst den Film nicht sehen!");
-       }
-       Console.ReadKey();
-*/
-
-
-int alter = 18;
-bool mobil = false;
-bool qualifiziert = true;
-bool testBestanden = false;
-bool schüchtern = false;
-
-if ((alter >= 18) && (mobil) && (qualifiziert || testBestanden) && !schüchtern)
+class BMI
 {
-    Console.WriteLine("Du bekommst den Job.");
-}
-else
-{
-    Console.WriteLine("Du bekommst den Job leider nicht.\n");
-}
+    static void main(String[] args)
+    {
 
-Console.WriteLine("Bitte geben Sie einen Wert zwischen 1 und 8 ein: ");
-int day = Convert.ToInt32(Console.ReadLine());
-switch(day)
-{
-    case 1:
-        Console.WriteLine("Es ist Montag.");
-        break;
+        Console.WriteLine("Bitte nennen Sie ihr Gewicht: ");
+        double Gewicht = Convert.ToDouble(Console.ReadLine());
 
-    case 2:
-        Console.WriteLine("Es ist Dienstag!");
-        break ;
+        Console.WriteLine("Bitte nennen Sie ihre Körpergröße: ");
+        double Größe = Convert.ToDouble(Console.ReadLine());
 
-    case 3:
-        Console.WriteLine("Es ist Mittwoch meine Kerle!");
-        break;
+        double BMI = (Gewicht / (Größe * Größe));
+        string Ergebnis = "";
 
-    case 4:
-        Console.WriteLine("Es ist Donnerstag!");
-        break;
-
-    case 5:
-        Console.WriteLine("Es ist Freitag!");
-        break;
-
-    case 6:
-        Console.WriteLine("Es ist Samstag");
-        break;
-
-    case 8:
-        Console.WriteLine("Es ist schon wieder Mittwoch -.-");
-        break;
-
-        default:
-        Console.WriteLine("Dieser Wert konnte nicht zugeordnet werden.");
-        break;
+        if (BMI < 18.5)
+        {
+            Ergebnis = "Untergewicht";
+        }
+        else if (BMI >= 18.5 && BMI < 25)
+        {
+            Ergebnis = "Normalgewicht";
+        }
+        else if (BMI >= 25 && BMI < 30)
+        {
+            Ergebnis = "Übergewicht";
+        }
+        else if (BMI >= 30 && BMI < 35)
+        {
+            Ergebnis = "Adipositas Grad 1!";
+        }
+        else if (BMI >= 35 && BMI < 40)
+        {
+            Ergebnis = "Adipositas Grad 2";
+        }
+        else if (BMI >= 40)
+        {
+            Ergebnis = "Adipositas Grad 3";
+        }
+        Console.WriteLine("Dein BMI beträgt {0}, das ist {1}.\n", BMI, Ergebnis);
+    }
 }
 
-Console.WriteLine("\nBitte wählen sie einen der folgenden Kommandos aus: SayHello, SayGoodbye oder Smile.");
-Console.Write("Command: ");
-string command = Console.ReadLine();
-
-switch(command)
+class Program
 {
-    case "SayHello":
-        Console.WriteLine("Hallo!");
-        break;
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Bitte geben Sie eine Jahreszahl ein: ");
+        int Jahr = Convert.ToInt32(Console.ReadLine());
 
-    case "SayGoodbye":
-        Console.WriteLine("Auf wiedersehen!");
-        break;
+        if (IstSchaltJahr(Jahr))
+        {
+            Console.WriteLine(Jahr + "Ist ein Schaltjahr!");
+        }
+        else
+        {
+            Console.WriteLine(Jahr + "Ist kein Schaltjahr!");
+        }
+        Console.ReadKey();
+    }
 
-    case "Smile":
-        Console.WriteLine("=)");
-        break;
 
-        default :
-        Console.WriteLine("Ungültiger Befehl!");
-        break;
+    static bool IstSchaltJahr(int Jahr)
+    {
+        return (Jahr % 4 == 0 && Jahr % 100 != 0) || (Jahr % 400 == 0);
+    }
+
+
+
 }
 
-Console.ReadKey();
+
+
